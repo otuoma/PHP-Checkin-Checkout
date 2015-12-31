@@ -17,13 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `checkincheckout`
---
-CREATE DATABASE IF NOT EXISTS `checkincheckout` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `checkincheckout`;
-
--- --------------------------------------------------------
-
+-- Create Database: `checkincheckout`
 --
 -- Table structure for table `checkincheckout`
 --
