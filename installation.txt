@@ -1,0 +1,156 @@
+==============================================
+= PHP CHECKIN-CHECKIN INSTALLATION PROCEDURE =
+==============================================
+
+PHP Checkin-checkout is built on Codeigniter PHP framework,
+so if you are familiar with CI, you can go ahead and hit the road
+on your own. Otherwise, follow along........
+
+1. SERVER SET-UP
+-----------------
+
+Your server needs to be running Apache2, MySQL 5 or greater and
+PHP 5 or greater with GD image library for generating barcode
+images.
+
+If you are on a windows machine, a quick solution would be downloading
+XAMPP server package available here: http://apachefriends.org. Install
+it with default values and set apache and MySQL to run as services so
+they autostart at boot.
+
+If you are on a linux box, install the LAMPP stack by typing in the terminal:
+
+sudo apt-get install apache2 php5 mysql-server phpmyadmin
+
+This section may not be detailed enough for starters and may require further
+information. A simple google search on how to set-up a xampp/lampp server
+may be useful. A xampp/lampp stack is strongly recommended for staters
+because it includes phpmyadmin which will be very useful when setting up
+the database at step 3.
+
+2. SET-UP PHP CHECKIN-CHECKOUT
+-------------------------------
+
+Go to http://sourceforge.net/projects/phpcheckincheckout and download the
+software to your local hard drive.
+
+2 - a) WINDOWS SPECIFIC
+Extract the contents of the zip archive using windows explorer or another
+software of your choice like winrar or winzip.
+You should end-up with a single folder called trakka. You can choose to
+rename this folder to a name of your choice. For this installation purpose,
+we shall leave the name unchanged.
+Copy the folder trakka to the webroot folder of your server. If you installed
+xampp as earlier suggested, this should be inside C:\xampp\htdocs. So you
+should have C:\xampp\htdocs\trakka on your hard drive.
+
+2 - b) LINUX SPECIFIC
+
+Extract the contents of the zip archive:
+
+sudo unzip php-checkincheckout-1.0.zip
+
+You should end up with a directory named trakka. You can choose to rename this
+directory to a name of your choice. For the purpose of this installation, we
+shall leave it unchanged. However, should you choose to rename it:
+
+sudo mv trakka name_of_your_choice
+
+Copy the directory trakka to the webroot directory of your server. Usually its
+inside /var/www so you should have /var/www/trakka if you didnt change the
+directory name.To copy it to the webroot directory:
+
+sudo cp -R trakka /var/www/trakka
+
+3. SET-UP THE DATABASE
+----------------------
+
+Open up your browser and open the address http://localhost/phpmyadmin
+This is only applicable if you are installing on a local machine. If you are
+installing on a hosted account, you need to point the browser to your
+phpmyadmin.
+Log-in to phpmyadmin, click on databases. Under create databses, type in the
+name of your new database and click on create. For this installation, we shall
+call our database checkincheckout.
+Now click on the name of your new database on the list displayed there.
+
+We now have to create tables and insert some default data to get our new
+software started. This should be simple.
+Click on import and then browse. In the window that opens up, navigate your
+way to the file located at /var/www/trakka/database.sql if you are on a linux
+box and C:\xampp\htdocs\trakka\database.sql if you are on a windows machine.
+
+Then click on go button. If all went well here, then our database set-up is
+done. You can log-out of phpmyadmin now.
+
+4. CONFIGURE THE SOFTWARE
+-------------------------
+
+This step is intended to connect our software to the database we've just
+created in the previous step so it can read and write data to it.
+On windows open C:\xampp\htdocs\trakka\application\config\database.php while
+on linux open /var/www/trakka/application/config/database.php in a text editor
+of your choice.
+Locate these lines:
+
+$db['default']['hostname'] = 'localhost';
+
+$db['default']['username'] = 'root';
+
+$db['default']['password'] = 'root101';
+
+$db['default']['database'] = 'checkincheckout';
+
+These are database connection parameters.
+Many a times the first line is left unchanged but may depend on you database
+configuration.
+
+The value root on the second line should be replaced with the username you used
+when logging in to phpmyadmin when creating the database.
+
+On the third line, replace root101 with the password you used when logging in to
+phpmyadmin when creating the database.
+
+On the fourth line, replace checkincheckout with the name of the database you
+created at step 3.
+WARNING
+
+These are security sensitive values. Do not use root user in real situations
+because these values are stored in a file that can be viewed by anyone who
+gets access to the server. The values used here are only for instruction
+purposes and not intended for use in a production environment.
+
+5. SET BASE URL
+---------------
+
+Ignore this section if you did not rename the folder at step 2 and jump to
+section 6.
+
+The final step involves setting the routes constant for codeigniter framework
+that this software is built on.
+
+On windows open C:\xampp\htdocs\trakka\application\config\config.php and on
+linux open /var/www/trakka/application/config/config.php
+
+Locate the line
+
+$config['base_url'] = 'http://'.$_SERVER['HTTP_HOST'].'/trakka/';
+
+Replace trakka with the name you chose for the software folder at section 2.
+
+6. LAUNCH THE SOFTWARE
+-----------------------
+
+Now launch the software via the browser by pointing to http://localhost/trakka
+Replace localhost with your hostname and trakka with the appropriate name you
+provided at section 2.
+
+Log-in with:
+
+username/email: admin@syntactic.co.ke
+password: changeme
+
+You should go ahead and change these values in a real production environment.
+
+NB: On a linux system, the folder located at /var/www/trakka/images/uploads/
+requires the needed permissions to enable uploading of images.
