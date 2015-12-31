@@ -147,7 +147,7 @@ provided at section 2.
 
 Log-in with:
 
-username/email: admin@syntactic.co.ke
+username/email: info@networkbooks.co.ke
 password: changeme
 
 You should go ahead and change these values in a real production environment.

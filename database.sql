@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2013 at 09:14 PM
--- Server version: 5.5.32
--- PHP Version: 5.4.16
+-- Generation Time: Dec 31, 2015 at 01:38 PM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `checkincheckout`
 --
-CREATE DATABASE IF NOT EXISTS `checkincheckout` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `checkincheckout`;
 
 -- --------------------------------------------------------
 
@@ -81,11 +79,11 @@ CREATE TABLE IF NOT EXISTS `options` (
 --
 
 INSERT INTO `options` (`id`, `name`, `value`, `notes`) VALUES
-(1, 'company_name', 'synTACTIC', 'no notes'),
+(1, 'company_name', 'Network Books', 'Information Management Services'),
 (2, 'location', 'Nairobi City', ''),
-(3, 'address', 'Luthuli Av.', ''),
-(4, 'email', 'example@syntactic.co.ke', ''),
-(5, 'cellphone', '254715397755', '');
+(3, 'address', 'Southlands Estate', ''),
+(4, 'email', 'info@networkbooks.co.ke', ''),
+(5, 'cellphone', '+254 715 397 755', '');
 
 -- --------------------------------------------------------
 
@@ -117,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `persons` (
 --
 
 INSERT INTO `persons` (`id`, `unique_id`, `email`, `first_name`, `second_name`, `person_type`, `password`, `cellphone`, `address`, `time`, `staff_id`, `status`, `permissions`, `avatar`) VALUES
-(12, 'C01s/cty/3012/2011', 'admin@syntactic.co.ke', 'Admin', 'System', 'admin', 'fa9beb99e4029ad5a6615399e7bbae21356086b3', 733233788, 'My address', '2013-03-23', 12, 'active', '', 'default_avatar.png');
+(12, 'C01s/cty/3012/2011', 'info@networkbooks.co.ke', 'Admin', 'System', 'admin', 'fa9beb99e4029ad5a6615399e7bbae21356086b3', 733233788, 'My address', '2013-03-23', 12, 'active', '', 'default_avatar.png');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -110,7 +110,7 @@
         </fieldset>
         <div id="footer">
             <span>Powered by PHP checkin-Checkout 1.0 <br/>
-        From <a href="http://syntactic.co.ke" target="_blank"> synTACTIC.co.ke </a>
+        From <a href="http://networkbooks.co.ke" target="_blank"> networkbooks.co.ke </a>
         <br/>&copy; Copyright 2013.
         </span>
     </div>
